@@ -3,5 +3,5 @@ Autonomous Drone Adaptive Perceptual Technology (ADAPT) is a library project tha
 
 
 ## Dependencies:
-* ![](res/webots.png =50x50) WeBots - For simulations
-* ![](res/ros2.png =50x50) ROS2 - As an interface into the control of the robots themselves
+* <img src="https://cyberbotics.com/assets/images/webots.png" width="50" height="50" /> WeBots - For simulations
+* <img src="https://avatars.githubusercontent.com/u/3979232?s=280&v=4" width="50" height="50" /> ROS2 - As an interface into the control of the robots themselves
