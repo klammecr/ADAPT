@@ -5,3 +5,9 @@ Autonomous Drone Adaptive Perceptual Technology (ADAPT) is a library project tha
 ## Dependencies:
 * <img src="https://cyberbotics.com/assets/images/webots.png" width="25" height="25" /> WeBots - For simulations
 * <img src="https://avatars.githubusercontent.com/u/3979232?s=280&v=4" width="25" height="25" /> ROS2 - As an interface into the control of the robots themselves
+
+
+TODO:
+* Create Docker Image with deps
+* Create a pretty simple environment with a quadcopter
+* Get a basic wall avoidance example working with ROS2 + WeBOTS
