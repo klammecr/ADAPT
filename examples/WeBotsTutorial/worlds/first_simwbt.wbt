@@ -1,0 +1,84 @@
+#VRML_SIM R2022a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.46085845965593214 -0.44637174314972966 -0.7670474216637674 4.41951598656576
+  position -0.041255959827767016 -1.271086669398655 2.6987485939609983
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+WoodenBox {
+  translation 0 -0.3 0.04
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation 0.18 0 0.04
+  name "wooden box(1)"
+  size 0.1 0.1 0.1
+}
+E-puck {
+  rotation 0 1 0 0
+  controller "epuck_collisionavoidance_ck"
+}
+Floor {
+  size 1 1
+}
+Solid {
+  translation -0.29 0 0.183425
+  rotation 0 1 0 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.1
+      }
+    }
+  ]
+  boundingObject Sphere {
+    radius 0.1
+  }
+  physics Physics {
+  }
+}
+DEF WALL-SOLID Solid {
+  translation 0 -0.45 0
+  children [
+    DEF WALL Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 0
+      }
+      geometry Box {
+        size 0.9 0.1 0.1
+      }
+    }
+  ]
+  name "solid(1)"
+}
+Solid {
+  translation 0.45 4.58822e-07 0
+  rotation 0 0 1 -1.5707953071795862
+  children [
+    USE WALL
+  ]
+  name "solid(2)"
+}
+Solid {
+  translation -0.45 -1.65291e-06 0
+  rotation 0 0 1 1.5708
+  children [
+    USE WALL
+  ]
+  name "solid(3)"
+}
+Solid {
+  translation 0 0.45 0
+  children [
+    USE WALL
+  ]
+  name "solid(4)"
+}
