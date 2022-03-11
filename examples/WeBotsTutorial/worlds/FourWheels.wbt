@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.2451390996441338 -0.8205949350228142 0.5162661856451249 5.209923019598004
-  position -1.8798309478842794 1.0635452340717235 2.6028041811130636
+  orientation -0.41838481744030487 -0.3117816770835729 0.8530804946606138 4.259766835910153
+  position 0.10205829315950449 2.2035737372571726 2.621622101265697
 }
 TexturedBackground {
 }
@@ -19,15 +19,19 @@ WoodenBox {
   size 0.1 0.1 0.1
 }
 E-puck {
-  translation -0.06217863818328997 0.3581439568701607 -0.00011006653505186634
-  rotation 0.0003192250768242524 -0.0002171472747282256 0.999999925471203 -0.4457312338232846
+  hidden position_0_0 27.62987549234458
+  hidden position_0_1 23.614758811537477
+  hidden rotation_1 0 0.9999999999999999 0 2.4971342636262355
+  hidden rotation_2 0 -1 0 1.5179824171808685
+  translation 0.34450227183000987 0.11210289177765623 -6.95123774945277e-05
+  rotation 0.0005492822249297955 0.0004084323955681764 -0.9999997657359805 1.8784201979428774
   controller "epuck_collisionavoidance_ck"
 }
 Floor {
   size 1 1
 }
 Solid {
-  translation -0.29 0 0.09342619472746846
+  translation -0.29 0 0.09342527561844734
   rotation 0 1 0 0
   children [
     Shape {
@@ -83,144 +87,5 @@ Solid {
   ]
   name "solid(4)"
 }
-Robot {
-  children [
-    DEF WHEEL1 HingeJoint {
-      jointParameters HingeJointParameters {
-        axis 0 1 0
-        anchor 0.05 0.06 0
-      }
-      device [
-        RotationalMotor {
-          name "wheel1"
-        }
-      ]
-      endPoint Solid {
-        translation 0.05 0.06 0
-        rotation 1 0 0 1.5708
-        children [
-          DEF WHEEL Shape {
-            appearance PBRAppearance {
-              baseColor 0.305882 0.898039 0.25098
-              roughness 1
-              metalness 0
-            }
-            geometry Cylinder {
-              height 0.02
-              radius 0.04
-              subdivision 24
-            }
-          }
-        ]
-        boundingObject USE WHEEL
-        physics Physics {
-        }
-      }
-    }
-    DEF WHEEL2 HingeJoint {
-      jointParameters HingeJointParameters {
-        axis 0 1 0
-        anchor 0.05 -0.06 0
-      }
-      device [
-        RotationalMotor {
-          name "wheel2"
-        }
-      ]
-      endPoint Solid {
-        translation 0.05 -0.06 0
-        rotation 1 0 0 1.5708
-        children [
-          USE WHEEL
-        ]
-        name "solid(1)"
-        boundingObject USE WHEEL
-        physics Physics {
-        }
-      }
-    }
-    DEF WHEEL3 HingeJoint {
-      jointParameters HingeJointParameters {
-        axis 0 1 0
-        anchor -0.05 0.06 0
-      }
-      device [
-        RotationalMotor {
-          name "wheel3"
-        }
-      ]
-      endPoint Solid {
-        translation -0.05 0.06 0
-        rotation 1 0 0 1.5708
-        children [
-          USE WHEEL
-        ]
-        name "solid(2)"
-        boundingObject USE WHEEL
-        physics Physics {
-        }
-      }
-    }
-    DEF WHEEL4 HingeJoint {
-      jointParameters HingeJointParameters {
-        axis 0 1 0
-        anchor -0.05 -0.06 0
-      }
-      device [
-        RotationalMotor {
-          name "wheel4"
-        }
-      ]
-      endPoint Solid {
-        translation -0.05 -0.06 0
-        rotation 1 0 0 1.5708
-        children [
-          USE WHEEL
-        ]
-        name "solid(3)"
-        boundingObject USE WHEEL
-        physics Physics {
-        }
-      }
-    }
-    DEF DSLEFT DistanceSensor {
-      translation 0.1 0.025 0.01
-      rotation 0 0 1 0.3
-      children [
-        Shape {
-          geometry Box {
-            size 0.01 0.01 0.01
-          }
-        }
-      ]
-      name "ds_left"
-    }
-    DEF DSRIGHT DistanceSensor {
-      translation 0.1 -0.025 0.01
-      rotation 0 0 -1 0.3
-      children [
-        Shape {
-          geometry Box {
-            size 0.01 0.01 0.01
-          }
-        }
-      ]
-      name "ds_right"
-    }
-    DEF BODY Shape {
-      appearance PBRAppearance {
-        baseColor 0.643137 0 0
-      }
-      geometry Box {
-        size 0.2 0.1 0.05
-      }
-    }
-  ]
-  name "4Wheeler"
-  boundingObject USE BODY
-  physics Physics {
-    density -1
-    mass 1
-  }
-  controller "fourwheeler_ck"
+FourWheelsRobot {
 }

@@ -1,0 +1,161 @@
+PROTO FourWheelsRobot [
+  field SFVec3f    translation  0 0 0
+  field SFRotation rotation     0 0 1 0
+  field SFFloat    bodyMass     1
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    children [
+    DEF WHEEL1 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 2.016017786808437
+        axis 0 1 0
+        anchor 0.05 0.06 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.05 0.06 0
+        rotation 0.4073790298510148 0.645770571654174 -0.6457729437062899 2.367892461256815
+        children [
+          DEF WHEEL Shape {
+            appearance PBRAppearance {
+              baseColor 0.305882 0.898039 0.25098
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+              subdivision 24
+            }
+          }
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+        linearVelocity 0.03451053521230857 -0.02409585526007325 3.744123114266359e-09
+        angularVelocity -0.11088436144932072 0.9938428689655981 -0.5288206497002537
+      }
+    }
+    DEF WHEEL2 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 2.2719820439780762
+        axis 0 1 0
+        anchor 0.05 -0.06 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel2"
+        }
+      ]
+      endPoint Solid {
+        translation 0.05 -0.06 0
+        rotation 0.31202026417715145 0.6718035572801931 -0.6718060249569805 2.5366992344465253
+        children [
+          USE WHEEL
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+        linearVelocity -0.028609885230977253 -0.03118072177844031 1.4178890958823789e-08
+        angularVelocity 0.1108869758393791 -0.9938436573702374 -0.5288207212269365
+      }
+    }
+    DEF WHEEL3 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 2.016017909985055
+        axis 0 1 0
+        anchor -0.05 0.06 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel3"
+        }
+      ]
+      endPoint Solid {
+        translation -0.05 0.06 0
+        rotation 0.4073789834785207 0.6457705862809717 -0.6457729583331414 2.367892540800651
+        children [
+          USE WHEEL
+        ]
+        name "solid(2)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+        linearVelocity 0.028609956300784594 0.028384352068527952 -3.9989158480090895e-08
+        angularVelocity -0.11088704960059075 0.9938427503780567 -0.5288206841926806
+      }
+    }
+    DEF WHEEL4 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 2.2719822402662984
+        axis 0 1 0
+        anchor -0.05 -0.06 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel4"
+        }
+      ]
+      endPoint Solid {
+        translation -0.05 -0.06 0
+        rotation 0.31202019182429996 0.6718035740823296 -0.6718060417591785 2.536699366313653
+        children [
+          USE WHEEL
+        ]
+        name "solid(3)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+        linearVelocity -0.03451045873196177 0.021299484364026566 -2.955143700241553e-08
+        angularVelocity 0.11088428763260352 -0.9938437760764155 -0.5288206866706147
+      }
+    }
+    DEF DSLEFT DistanceSensor {
+      translation 0.1 0.025 0.01
+      rotation 0 0 1 0.3
+      children [
+        Shape {
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_left"
+    }
+    DEF DSRIGHT DistanceSensor {
+      translation 0.1 -0.025 0.01
+      rotation 0 0 -1 0.3
+      children [
+        Shape {
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_right"
+    }
+    DEF BODY Shape {
+      appearance PBRAppearance {
+        baseColor 0.643137 0 0
+      }
+      geometry Box {
+        size 0.2 0.1 0.05
+      }
+    }
+    ]
+    boundingObject USE BODY
+    physics Physics {
+      density -1
+      mass IS bodyMass
+    }
+    controller "fourwheeler_ck"
+  }
+}
