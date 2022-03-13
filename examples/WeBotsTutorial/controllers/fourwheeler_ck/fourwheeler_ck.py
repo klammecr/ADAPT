@@ -6,12 +6,6 @@ from controller import Robot
 from controller import Motor
 from controller import DistanceSensor
 
-# create the Robot instance.
-robot = Robot()
-
-# get the time step of the current world. Time step is 64 ms for each physics step
-timestep = int(robot.getBasicTimeStep())
-
 # initialize motors
 wheels = []
 wheelsNames = ['wheel1', 'wheel2', 'wheel3', 'wheel4']
