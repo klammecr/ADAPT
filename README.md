@@ -8,6 +8,8 @@ Autonomous Drone Adaptive Perceptual Technology (ADAPT) is a library project tha
 
 
 TODO:
-* Create Docker Image with deps
-* Create a pretty simple environment with a quadcopter
-* Get a basic wall avoidance example working with ROS2 + WeBOTS
+- [X] Create Docker Image with deps
+- [X] Create a pretty simple environment with a quadcopter
+- [X] Custom python API to interact with the DJI Mavic 2
+- [X] Interactive controller into the environment with Python
+- [ ] Get a basic wall avoidance example working with ROS2 + WeBOTS
