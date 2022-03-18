@@ -78,11 +78,14 @@ class DroneInterface(object):
         vertical_input         = self.k_vertical_p * (clamped_difference_alt ** 3)
 
         # Calculate the motor inputs
+        # These two are diagonal, so, they must rotate the same direction, make it clockwise
         fl_motor_input = self.k_vertical_thrust + vertical_input - roll_input + pitch_input - yaw_input
-        fr_motor_input = self.k_vertical_thrust + vertical_input + roll_input + pitch_input + yaw_input
-        bl_motor_input = self.k_vertical_thrust + vertical_input - roll_input - pitch_input + yaw_input
-        br_motor_input = self.k_vertical_thrust + vertical_input + roll_input - pitch_input - yaw_input
-        return [fl_motor_input, fr_motor_input, bl_motor_input, br_motor_input]
+        rr_motor_input = self.k_vertical_thrust + vertical_input + roll_input - pitch_input - yaw_input
+        # These two are diagonal, so, they must rotate the same direction, but opposite of the other two make it counter-clockwise
+        fr_motor_input = - 1 * (self.k_vertical_thrust + vertical_input + roll_input + pitch_input + yaw_input) 
+        rl_motor_input = -1 * (self.k_vertical_thrust + vertical_input - roll_input - pitch_input + yaw_input) #
+       
+        return [fl_motor_input, fr_motor_input, rl_motor_input, rr_motor_input]
 
     def actuate_motors(self, yaw_disturbance, pitch_disturbance, roll_disturbance, target_alt = 1.0):
         """
