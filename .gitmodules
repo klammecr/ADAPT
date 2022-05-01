@@ -1,0 +1,4 @@
+[submodule "ext/opendr"]
+	path = ext/opendr
+	url = https://github.com/opendr-eu/opendr.git
+	branch = master
